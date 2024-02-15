@@ -1,0 +1,45 @@
+package com.miniproject.entity;
+
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@jakarta.persistence.Entity
+@Data
+@jakarta.persistence.Table(name="PLAN_CATEGORY ")
+public class PlanCategory {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="CATEGORY_ID")
+	private Integer categoryId;
+	
+	@Column(name="CATEGORY_NAME")
+	private String categoryName;
+	
+	@Column(name="ACTIVE_SW")
+	private String activeSw;
+	
+	@Column(name="CREATED_BY")
+	private String createdBy;
+	
+	@Column(name="UPDATED_BY")
+	private String updatedBy; 
+	
+	@Column(name="CREATED_DATE",updatable = false)
+	@CreationTimestamp
+	private LocalDate createDate;
+	
+	@Column(name="UPDATED_DATE",insertable = false)
+	@UpdateTimestamp
+	private LocalDate updateDate;
+	
+
+}
